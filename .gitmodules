@@ -1,0 +1,6 @@
+[submodule "project/utils/better-standard-lib"]
+	path = project/utils/better-standard-lib
+	url = https://github.com/DockerByTheGo/better-standard-lib.git
+[submodule "project/apps/backend-framework/blaze-minimal-lib"]
+	path = project/apps/backend-framework/blaze-minimal-lib
+	url = https://github.com/DockerByTheGo/blaze-minimal-lib.git
