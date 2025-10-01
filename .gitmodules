@@ -4,3 +4,6 @@
 [submodule "project/apps/backend-framework/blaze-minimal-lib"]
 	path = project/apps/backend-framework/blaze-minimal-lib
 	url = https://github.com/DockerByTheGo/blaze-minimal-lib.git
+[submodule "project/apps/backend-framework/blazy-edge"]
+	path = project/apps/backend-framework/blazy-edge
+	url = https://github.com/DockerByTheGo/Blaze-edge.git
