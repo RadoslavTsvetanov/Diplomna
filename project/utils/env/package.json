@@ -1,19 +1,16 @@
 {
-  "name": "diplomna",
+  "name": "env",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
-  "workspaces": [
-    "apps/*",
-    "utils/*"
-  ],
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "hono": "^4.9.9"
+    "zod": "^4.1.11",
+    "@blazyts/better-standard-library": "latest"
   }
 }
