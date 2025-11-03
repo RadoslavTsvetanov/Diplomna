@@ -1,7 +1,6 @@
-import type { Optionable } from "@blazyts/better-standard-library";
-import type { Alphabet, ContainsAtTheEnd, ContainsAtTheStart, RemoveNonAlphabetic } from "./utils";
+import type { ContainsAtTheEnd } from "./utils";
 
-type InferParamType<Param extends string> =
+export type InferParamType<Param extends string> =
   ContainsAtTheEnd<Param, "$"> extends true
     ? number
     : ContainsAtTheEnd<Param, "("> extends true

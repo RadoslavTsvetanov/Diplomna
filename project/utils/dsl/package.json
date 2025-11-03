@@ -10,7 +10,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@blazyts/better-standard-library": "1.0.0",
+    "@blazyts/better-standard-library": "workspace:*",
     "type-fest": "^4.41.0",
     "vitest": "^3.2.4"
   }
