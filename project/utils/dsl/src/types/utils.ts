@@ -9,7 +9,7 @@ export type Alphabet =
   | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
   | "V" | "W" | "X" | "Y" | "Z";
 
-
+// TODO: move to better standrard lib 
 export type ContainsAtTheEnd<T extends string, Y extends string> = T extends `${infer Rest}${Y}` ? true : false;
 export type ContainsAtTheStart<T extends string, Y extends string> = T extends `${Y}${infer Rest}` ? true : false
 
