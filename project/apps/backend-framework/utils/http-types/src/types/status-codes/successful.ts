@@ -1,0 +1,1 @@
+export type Sucessful = "200" | "299"

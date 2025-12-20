@@ -1,17 +1,16 @@
 {
-  "name": "@blazyts/extractparams",
+  "name": "@blazyts/http-types",
   "module": "index.ts",
   "type": "module",
   "version": "1.0.0",
+  "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5"
   },
   "dependencies": {
-    "@blazyts/better-standard-library": "1.0.0",
-    "type-fest": "^4.41.0",
-    "vitest": "^3.2.4"
+    "@blazyts/better-standard-library": "workspace:*"
   }
 }
