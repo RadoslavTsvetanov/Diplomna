@@ -1,1 +1,1 @@
-export type serverErrors = "500" | "599" 
+export type serverErrors = 500 | 599 

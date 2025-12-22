@@ -7,8 +7,8 @@
     "@types/bun": "latest"
   },
   "workspaces": [
-    "apps/*",
-    "utils/*"
+    "apps/**/*",
+    "utils/**/*"
   ],
   "peerDependencies": {
     "typescript": "^5"

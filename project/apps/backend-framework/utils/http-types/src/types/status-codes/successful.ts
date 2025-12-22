@@ -1,1 +1,1 @@
-export type Sucessful = "200" | "299"
+export type Sucessful = 20 | 299

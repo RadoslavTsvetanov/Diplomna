@@ -9,8 +9,5 @@
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "@blazyts/better-standard-library": "workspace:*"
   }
 }
