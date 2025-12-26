@@ -1,12 +1,11 @@
-
 export type EnvManagerOptionsShape = {
-    resolveAllAtStartup: boolean
-}
+  resolveAllAtStartup: boolean;
+};
 
 export class EnvManagerOptions<T extends EnvManagerOptionsShape> {
-    constructor(
-        public readonly options: T
-    ){
-        
-    }
+  constructor(
+    public readonly options: T,
+  ) {
+
+  }
 }

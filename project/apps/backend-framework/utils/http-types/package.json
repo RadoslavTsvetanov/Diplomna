@@ -1,13 +1,13 @@
 {
   "name": "@blazyts/http-types",
-  "module": "index.ts",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
+  "module": "index.ts",
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
   }
 }

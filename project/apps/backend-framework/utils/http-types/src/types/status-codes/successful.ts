@@ -1,1 +1,1 @@
-export type Sucessful = 20 | 299
+export type Sucessful = 20 | 299;
