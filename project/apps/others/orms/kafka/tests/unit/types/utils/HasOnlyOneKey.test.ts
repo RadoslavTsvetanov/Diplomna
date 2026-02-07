@@ -1,30 +1,57 @@
 import { describe, it, expectTypeOf } from 'vitest';
 import type { HasOnlyOneKey } from '../../../src/types/utils/HasOnlyOneKey';
+import { TopicClient } from '../../../src/TopicClient';
+import type { TopicSchemaDefault } from '../../../src/types/TopicSchema';
 
-describe('HasOnlyOneKey', () => {
-    it('should return true for record with single string key', () => {
-        type Result = HasOnlyOneKey<{ a: string }>;
+describe('HasOnlyOneKey with TopicClient', () => {
+    it('should return true for TopicClient with single version', () => {
+        type SingleVersionSchema = { v1: { userId: string; email: string } };
+        type Result = HasOnlyOneKey<SingleVersionSchema>;
+        expectTypeOf<Result>().toEqualTypeOf<true>();
+        
+        // Test with actual TopicClient
+        const client = new TopicClient({ v1: { userId: "", email: "" } });
+        expectTypeOf<typeof client>().toMatchTypeOf<TopicClient<SingleVersionSchema>>();
+    });
+
+    it('should return false for TopicClient with multiple versions', () => {
+        type MultiVersionSchema = { 
+            v1: { userId: string }; 
+            v2: { userId: string; email: string } 
+        };
+        type Result = HasOnlyOneKey<MultiVersionSchema>;
+        expectTypeOf<Result>().toEqualTypeOf<false>();
+        
+        // Test with actual TopicClient
+        const client = new TopicClient({ 
+            v1: { userId: "" }, 
+            v2: { userId: "", email: "" } 
+        });
+        expectTypeOf<typeof client>().toMatchTypeOf<TopicClient<MultiVersionSchema>>();
+    });
+
+    it('should return true for single v1 schema', () => {
+        type Schema = { v1: { id: string; name: string; age: number } };
+        type Result = HasOnlyOneKey<Schema>;
         expectTypeOf<Result>().toEqualTypeOf<true>();
     });
 
-    it('should return true for record with single number key', () => {
-        type Result = HasOnlyOneKey<{ 1: string }>;
-        expectTypeOf<Result>().toEqualTypeOf<true>();
-    });
-
-    it('should return true for record with single symbol key', () => {
-        const sym = Symbol('test');
-        type Result = HasOnlyOneKey<{ [sym]: string }>;
-        expectTypeOf<Result>().toEqualTypeOf<true>();
-    });
-
-    it('should return false for record with two keys', () => {
-        type Result = HasOnlyOneKey<{ a: string; b: number }>;
+    it('should return false for v1 and v2 schema', () => {
+        type Schema = { 
+            v1: { id: string }; 
+            v2: { id: string; name: string } 
+        };
+        type Result = HasOnlyOneKey<Schema>;
         expectTypeOf<Result>().toEqualTypeOf<false>();
     });
 
-    it('should return false for record with multiple number keys', () => {
-        type Result = HasOnlyOneKey<{ 1: string; 2: number }>;
+    it('should return false for three versions', () => {
+        type Schema = { 
+            v1: { id: string }; 
+            v2: { id: string; name: string };
+            v3: { id: string; name: string; email: string }
+        };
+        type Result = HasOnlyOneKey<Schema>;
         expectTypeOf<Result>().toEqualTypeOf<false>();
     });
 
