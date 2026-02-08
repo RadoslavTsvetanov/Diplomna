@@ -7,3 +7,6 @@
 [submodule "project/apps/backend-framework/blazy-edge"]
 	path = project/apps/backend-framework/core/blazy-edge
 	url = https://github.com/DockerByTheGo/Blaze-edge.git
+[submodule "project/apps/music"]
+	path = project/apps/music
+	url = https://github.com/RadoslavTsvetanov/Music-handler.git
