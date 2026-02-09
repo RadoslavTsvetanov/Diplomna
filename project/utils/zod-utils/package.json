@@ -1,5 +1,5 @@
 {
-  "name": "zod-utils",
+  "name": "@blazyts/zod-utils",
   "module": "index.ts",
   "type": "module",
   "private": true,
