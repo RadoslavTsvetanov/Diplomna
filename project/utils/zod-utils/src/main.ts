@@ -1,6 +1,6 @@
 import z from "zod/v4";
 
-function Without<TScehma extends z.ZodObject, TKeysToRemove extends (keyof TScehma["shape"])[]>(
+export function Without<TScehma extends z.ZodObject, TKeysToRemove extends (keyof TScehma["shape"])[]>(
     v: TScehma, 
     keysToRemove: TKeysToRemove
 ): z.ZodObject<Omit<TScehma["shape"], typeof keysToRemove[number]>> {
