@@ -11,9 +11,3 @@ export function Without<TScehma extends z.ZodObject, TKeysToRemove extends (keyo
     
     return v.omit(omitObj) as any;
 }
-
-const example = Without(z.object({ hi: z.string(), bye: z.number() }), ["hi"]);
-
-
-const e = example.parse({})
-
