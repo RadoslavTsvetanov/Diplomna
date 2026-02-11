@@ -1,13 +1,14 @@
-import z from "zod/v4";
+import type z from "../../../node_modules/zod/v4/classic/external.d.cts";
+
 
 export function Without<TScehma extends z.ZodObject, TKeysToRemove extends (keyof TScehma["shape"])[]>(
-    v: TScehma, 
+    v: TScehma,
     keysToRemove: TKeysToRemove
-): z.ZodObject<Omit<TScehma["shape"], typeof keysToRemove[number]>> {
+): z.ZodObject<Omit<TScehma["shape"], (typeof keysToRemove)[number]>> {
     const omitObj = keysToRemove.reduce((acc, key) => {
         acc[key as string] = true;
         return acc;
     }, {} as Record<string, true>);
-    
+
     return v.omit(omitObj) as any;
 }

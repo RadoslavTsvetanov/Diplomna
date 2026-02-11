@@ -1,6 +1,6 @@
 import { describe, it, expect, test } from "bun:test";
 import z from "zod/v4";
-import { Without } from "../src/main";
+import { Without } from "../src/without";
 
 describe("Without - Runtime Tests", () => {
     describe("basic functionality", () => {

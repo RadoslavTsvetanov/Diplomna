@@ -1,6 +1,6 @@
 
 import z from "zod/v4";
-import { Without } from "../src/main";
+import { Without } from "../src/without";
 
 type Expect<T extends true> = T;
 type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
@@ -257,5 +257,3 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ?
 
     type Test = Expect<Equal<Result, Expected>>;
 }
-
-console.log("✓ All type tests passed!");
