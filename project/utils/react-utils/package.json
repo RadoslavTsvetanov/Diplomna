@@ -1,5 +1,5 @@
 {
-  "name": "@blazytsts/utils.react-utils",
+  "name": "@blazytsts/utils_react-utils",
   "main": "index.ts",
   "module": "index.ts",
   "type": "module",
