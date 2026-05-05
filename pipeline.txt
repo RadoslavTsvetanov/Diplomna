@@ -1,0 +1,10 @@
+Repo: https://github.com/RadoslavTsvetanov/Diplomna
+
+GitHub Actions
+GitHub Actions workflow-ът е настроен във файла `.github/workflows/ci.yml`. На редове 3-10 са описани събитията `push` и `pull_request` към клона `main`, така че pipeline-ът да се стартира автоматично при качване на промени и при pull request. На редове 12-16 е дефинирана задачата `validation`, която се изпълнява върху `ubuntu-latest` и използва `project` като работна директория. На редове 18-25 са добавени стъпките за checkout на кода, инсталация на Bun и инсталация на зависимостите. При успешен run GitHub Actions показва зелена отметка за job-а и за целия workflow, а при проблем показва червен статус, като в логовете се вижда точно на коя стъпка е настъпила грешката.
+
+Pipeline Tests
+Unit тестовете се стартират от стъпката `Run unit tests` на редове 36-37 във файла `.github/workflows/ci.yml`. Тази стъпка извиква командата `bun --cwd utils/env-manager/env run test:ci`, която използва скрипта `test:ci` от `project/utils/env-manager/env/package.json`. Самият скрипт е дефиниран на ред 11 в този файл и изпълнява `bun --bun vitest run`, което стартира unit тестовете с Vitest. При нужда от отделна проверка на покритието може да се използва и скриптът `coverage` на ред 12, който изпълнява `bun --bun vitest run --coverage`.
+
+Pipeline Linter
+Linter-ът се стартира от стъпката `Run linter` на редове 30-31 във файла `.github/workflows/ci.yml`. Тази стъпка извиква командата `bun --cwd utils/env-manager/env run lint`, която използва скрипта `lint` от `project/utils/env-manager/env/package.json`. Скриптът е дефиниран на ред 7 и стартира `bunx eslint src/Env.ts src/EnvManager.ts src/EnvManagerBuilder.ts tests/*.ts vitest.config.ts`, което проверява основните файлове на модула, тестовете и Vitest конфигурацията. Използваният linter е ESLint, а допълнителните настройки за този пакет са във файла `project/utils/env-manager/env/eslint.config.js`, където на редове 14-26 са изключени и настроени правилата `node/no-process-env`, `test/prefer-lowercase-title`, `unicorn/filename-case` и `perfectionist/sort-named-imports`, за да отговарят правилата на структурата и тестовете в този модул.

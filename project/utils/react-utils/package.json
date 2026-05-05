@@ -7,6 +7,9 @@
   "scripts": {
     "test": "vitest run"
   },
+  "dependencies": {
+    "@blazyts/better-standard-library": "workspace:*"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "vitest": "^0.34.6"
